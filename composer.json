@@ -1,0 +1,53 @@
+{
+    "name": "brash-creative/skeleton",
+    "type": "library",
+    "description": "",
+    "keywords": [
+        "brash-creative",
+        "skeleton"
+    ],
+    "homepage": "https://github.com/brash-creative/skeleton",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paul Crashley",
+            "email": "paulcrashley@gmail.com",
+            "homepage": "https://github.com/brash-creative",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~7.1",
+        "php-di/slim-bridge": "^1.0",
+        "slim/slim": "^3.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : ">=5.4.3",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brash\\Skeleton\\": "src",
+            "App\\": "app"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Brash\\Skeleton\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:8080 -t public public/index.php",
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

@@ -1,0 +1,15 @@
+
+web:
+  image: nginx:latest
+  ports:
+    - "8080:80"
+  volumes:
+    - ./:/var/www
+    - ./docker-build/site.conf:/etc/nginx/conf.d/site.conf
+    - logs:/var/www/logs
+  links:
+    - php
+php:
+  image: khanhicetea/php7-fpm-docker
+  volumes:
+    - ./:/var/www
