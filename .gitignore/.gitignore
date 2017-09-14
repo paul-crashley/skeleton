@@ -1,0 +1,11 @@
+.DS_Store
+.idea/
+
+vendor/
+node_modules/
+npm-debug.log
+
+.env.*.php
+.env.php
+.env
+
