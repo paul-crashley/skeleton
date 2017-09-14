@@ -8,6 +8,11 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class ServiceProvider implements ServiceProviderInterface
 {
+    public function dependencies(App $app): App
+    {
+        return $app;
+    }
+
     public function routes(App $app): App
     {
         $app->get('/', function (ResponseInterface $response, ServerRequestInterface $request) {

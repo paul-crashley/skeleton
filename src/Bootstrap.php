@@ -32,6 +32,7 @@ class Bootstrap
         foreach ($this->providers as $providerClassName) {
             /** @var ServiceProviderInterface $provider */
             $provider = new $providerClassName;
+            $provider->dependencies($app);
             $provider->routes($app);
         }
 
