@@ -6,9 +6,7 @@ use DI\Bridge\Slim\App;
 
 class Bootstrap
 {
-    private $providers = [
-        ServiceProvider::class
-    ];
+    private $providers = [];
 
     public function __construct(array $providers = [])
     {
@@ -29,9 +27,7 @@ class Bootstrap
 
     public function build(App $app): App
     {
-        foreach ($this->providers as $providerClassName) {
-            /** @var ServiceProviderInterface $provider */
-            $provider = new $providerClassName;
+        foreach ($this->providers as $provider) {
             $provider->dependencies($app);
             $provider->routes($app);
         }

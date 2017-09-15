@@ -10,6 +10,6 @@ web:
   links:
     - php
 php:
-  image: khanhicetea/php7-fpm-docker
+  build: .
   volumes:
     - ./:/var/www

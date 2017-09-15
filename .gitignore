@@ -8,3 +8,6 @@ npm-debug.log
 .env.*.php
 .env.php
 .env
+/.composer
+/.bash_history
+/build
