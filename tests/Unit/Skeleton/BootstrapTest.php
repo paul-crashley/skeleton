@@ -1,6 +1,6 @@
 <?php
 
-namespace Brash\Skeleton\Tests;
+namespace Brash\Skeleton\Tests\Unit\Skeleton;
 
 use Brash\Skeleton\Bootstrap;
 use Brash\Skeleton\ServiceProviderInterface;
