@@ -9,8 +9,8 @@ $providers = [
 
 ];
 
-$bootstrap = new \Brash\Skeleton\Bootstrap($providers);
-$bootstrap->addProvider(new \Brash\Skeleton\ServiceProvider());
+$bootstrap = new \Skeleton\Bootstrap($providers);
+$bootstrap->addProvider(new \Skeleton\ServiceProvider());
 $bootstrap->addProviders($providers);
 $bootstrap->build($app);
 

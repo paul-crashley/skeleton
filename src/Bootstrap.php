@@ -1,6 +1,6 @@
 <?php
 
-namespace Brash\Skeleton;
+namespace Skeleton;
 
 use DI\Bridge\Slim\App;
 

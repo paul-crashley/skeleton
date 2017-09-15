@@ -1,9 +1,9 @@
 <?php
 
-namespace Brash\Skeleton\Tests\Unit\Skeleton;
+namespace Skeleton\Tests\Unit\Skeleton;
 
-use Brash\Skeleton\Bootstrap;
-use Brash\Skeleton\ServiceProviderInterface;
+use Skeleton\Bootstrap;
+use Skeleton\ServiceProviderInterface;
 use DI\Bridge\Slim\App;
 use PHPUnit\Framework\TestCase;
 

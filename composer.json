@@ -29,13 +29,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Brash\\Skeleton\\": "src",
+            "Skeleton\\": "src",
             "App\\": "app"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Brash\\Skeleton\\Tests\\": "tests"
+            "Skeleton\\Tests\\": "tests"
         }
     },
     "scripts": {
