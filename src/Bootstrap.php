@@ -6,32 +6,31 @@ use DI\Bridge\Slim\App;
 
 class Bootstrap
 {
-    private $providers = [];
-
-    public function __construct(array $providers = [])
+    public static function build(App $app): App
     {
-        $this->addProviders($providers);
-    }
+        $providers = $app->getContainer()->get('providers');
 
-    public function addProviders(array $providers)
-    {
-        foreach ($providers as $provider) {
-            $this->addProvider($provider);
-        }
-    }
-
-    public function addProvider(ServiceProviderInterface $provider)
-    {
-        $this->providers[] = $provider;
-    }
-
-    public function build(App $app): App
-    {
-        foreach ($this->providers as $provider) {
+        foreach ($providers as $className) {
+            $provider = self::initProvider($className);
             $provider->dependencies($app);
             $provider->routes($app);
         }
 
         return $app;
+    }
+
+    private static function initProvider(string $className): ServiceProviderInterface
+    {
+        if (!class_exists($className)) {
+            throw new \LogicException("Class {$className} does not exist as a service provider");
+        }
+
+        $provider = new $className;
+
+        if (!$provider instanceof ServiceProviderInterface) {
+            throw new \LogicException("Class {$className} does not implement ServiceProviderInterface");
+        }
+
+        return $provider;
     }
 }
