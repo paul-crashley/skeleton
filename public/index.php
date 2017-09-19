@@ -2,7 +2,7 @@
 
 require __DIR__ .'/../vendor/autoload.php';
 
-$app = new \DI\Bridge\Slim\App();
+$app = new \Skeleton\App();
 
 \Skeleton\Bootstrap::build($app);
 

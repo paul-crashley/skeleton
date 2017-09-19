@@ -8,8 +8,6 @@ class App extends \DI\Bridge\Slim\App
 {
     protected function configureContainer(ContainerBuilder $builder)
     {
-        $config = include __DIR__ . '/../config/config.php';
-
-        $builder->addDefinitions($config);
+        $builder->addDefinitions(__DIR__ . '/../config/config.php');
     }
 }

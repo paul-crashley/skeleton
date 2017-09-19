@@ -5,6 +5,7 @@ namespace Skeleton;
 use DI\Bridge\Slim\App;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Skeleton\Http\Controller\HomeController;
 
 /**
  * This service provider will run first, so add any global dependencies that may be required in other service providers
@@ -24,10 +25,7 @@ class ServiceProvider implements ServiceProviderInterface
 
     public function routes(App $app): App
     {
-        $app->get('/', function (ResponseInterface $response, ServerRequestInterface $request) {
-            $response->getBody()->write('Hello.');
-            return $response;
-        });
+        $app->get('/', [HomeController::class, 'index']);
 
         return $app;
     }
