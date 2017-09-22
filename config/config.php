@@ -2,12 +2,8 @@
 
 return [
     'settings.displayErrorDetails' => \Skeleton\debug(),
-
-    'logger' => [
-        'name' => \Skeleton\env('APP_NAME', 'skeleton'),
-        'level' => Monolog\Logger::DEBUG,
-        'path' => __DIR__ . '/../logs/app.log',
-    ],
+    'settings.debug' => \Skeleton\env('APP_DEBUG'),
+    'settings.environment' => \Skeleton\env('APP_ENV'),
 
     'providers' => [
         \Skeleton\ServiceProvider::class,

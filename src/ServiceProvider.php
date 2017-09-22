@@ -3,8 +3,7 @@
 namespace Skeleton;
 
 use DI\Bridge\Slim\App;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Monolog\Logger;
 use Skeleton\Http\Controller\HomeController;
 
 /**
@@ -18,14 +17,24 @@ use Skeleton\Http\Controller\HomeController;
  */
 class ServiceProvider implements ServiceProviderInterface
 {
-    public function dependencies(App $app): App
+    public function dependencies(): array
     {
-        return $app;
+        return [
+            'settings.displayErrorDetails' => \Skeleton\debug(),
+            'settings.debug' => \Skeleton\env('APP_DEBUG'),
+            'settings.environment' => \Skeleton\env('APP_ENV'),
+
+            'logger' => [
+                'name' => \Skeleton\env('APP_NAME', 'skeleton'),
+                'level' => Logger::DEBUG,
+                'path' => __DIR__ . '/../logs/app.log',
+            ],
+        ];
     }
 
     public function routes(App $app): App
     {
-        $app->get('/', [HomeController::class, 'index']);
+        $app->get('/', HomeController::class);
 
         return $app;
     }

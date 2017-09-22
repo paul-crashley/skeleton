@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class HomeController
 {
-    public function index(ResponseInterface $response)
+    public function __invoke(ResponseInterface $response)
     {
         $response->getBody()->write('Hello.');
 

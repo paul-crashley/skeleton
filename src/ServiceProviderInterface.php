@@ -6,6 +6,6 @@ use DI\Bridge\Slim\App;
 
 interface ServiceProviderInterface
 {
-    public function dependencies(App $app): App;
+    public function dependencies(): array;
     public function routes(App $app): App;
 }

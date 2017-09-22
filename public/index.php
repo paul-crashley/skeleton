@@ -5,8 +5,10 @@ require __DIR__ .'/../vendor/autoload.php';
 $dotenv = new Dotenv\Dotenv(__DIR__ .'/../');
 $dotenv->load();
 
-$app = new \Skeleton\App();
+$providers = [
+    \Skeleton\ServiceProvider::class,
+];
 
-\Skeleton\Bootstrap::build($app);
+$app = new \Skeleton\App($providers);
 
 $app->run();
