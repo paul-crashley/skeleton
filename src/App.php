@@ -16,13 +16,20 @@ class App extends \DI\Bridge\Slim\App
      */
     private $providers = [];
 
-    public function __construct(array $providers = [])
+    public function __construct(array $config = [])
     {
-        $this->providers = $providers;
+        $this->setProviders($config);
 
         parent::__construct();
 
         $this->processRoutes();
+    }
+
+    private function setProviders(array $config)
+    {
+        if (isset($config['providers'])) {
+            $this->providers = $config['providers'];
+        }
     }
 
     protected function configureContainer(ContainerBuilder $builder)

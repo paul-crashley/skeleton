@@ -17,10 +17,10 @@
     <filter>
         <whitelist>
             <directory suffix=".php">app/</directory>
-            <directory suffix=".php">src/</directory>
 
             <exclude>
-                <directory>src/settings.php</directory>
+                <directory>config/*</directory>
+                <directory>src/*</directory>
                 <directory suffix="ServiceProvider.php">src</directory>
                 <directory suffix="ServiceProvider.php">app</directory>
             </exclude>
