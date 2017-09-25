@@ -1,6 +1,6 @@
 <?php
 
-namespace Skeleton\Http\Controller;
+namespace App\Http\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 

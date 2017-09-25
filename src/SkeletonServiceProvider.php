@@ -4,7 +4,6 @@ namespace Skeleton;
 
 use DI\Bridge\Slim\App;
 use Monolog\Logger;
-use Skeleton\Http\Controller\HomeController;
 
 /**
  * This service provider will run first, so add any global dependencies that may be required in other service providers
@@ -12,10 +11,10 @@ use Skeleton\Http\Controller\HomeController;
  *
  * This provider also contains your home page route which can be changed to fit your project.
  *
- * Class ServiceProvider
- * @package Brash\Skeleton
+ * Class SkeletonServiceProvider
+ * @package Skeleton
  */
-class ServiceProvider implements ServiceProviderInterface
+class SkeletonServiceProvider implements ServiceProviderInterface
 {
     public function dependencies(): array
     {
@@ -34,8 +33,6 @@ class ServiceProvider implements ServiceProviderInterface
 
     public function routes(App $app): App
     {
-        $app->get('/', HomeController::class);
-
         return $app;
     }
 }

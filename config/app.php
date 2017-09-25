@@ -2,6 +2,7 @@
 
 return [
     'providers' => [
-        \Skeleton\ServiceProvider::class,
+        \Skeleton\SkeletonServiceProvider::class,
+        \App\AppServiceProvider::class,
     ]
 ];
