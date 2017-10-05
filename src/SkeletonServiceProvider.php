@@ -22,6 +22,7 @@ class SkeletonServiceProvider implements ServiceProviderInterface
             'settings.displayErrorDetails' => \Skeleton\debug(),
             'settings.debug' => \Skeleton\env('APP_DEBUG'),
             'settings.environment' => \Skeleton\env('APP_ENV'),
+            'settings.determineRouteBeforeAppMiddleware' => true,
 
             'logger' => [
                 'name' => \Skeleton\env('APP_NAME', 'skeleton'),
@@ -29,6 +30,11 @@ class SkeletonServiceProvider implements ServiceProviderInterface
                 'path' => __DIR__ . '/../logs/app.log',
             ],
         ];
+    }
+
+    public function middleware(App $app): App
+    {
+        return $app;
     }
 
     public function routes(App $app): App
