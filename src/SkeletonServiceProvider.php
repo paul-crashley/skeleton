@@ -32,11 +32,6 @@ class SkeletonServiceProvider implements ServiceProviderInterface
         ];
     }
 
-    public function middleware(App $app): App
-    {
-        return $app;
-    }
-
     public function routes(App $app): App
     {
         return $app;

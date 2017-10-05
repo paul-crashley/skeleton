@@ -16,12 +16,19 @@ class App extends \DI\Bridge\Slim\App
      */
     private $providers = [];
 
+    /**
+     * @var array
+     */
+    private $middleware = [];
+
     public function __construct(array $config = [])
     {
         $this->setProviders($config);
+        $this->setMiddleware($config);
 
         parent::__construct();
 
+        $this->processMiddleware();
         $this->processRoutes();
     }
 
@@ -29,6 +36,13 @@ class App extends \DI\Bridge\Slim\App
     {
         if (isset($config['providers'])) {
             $this->providers = $config['providers'];
+        }
+    }
+
+    private function setMiddleware(array $config)
+    {
+        if (isset($config['middleware'])) {
+            $this->middleware = $config['middleware'];
         }
     }
 
@@ -60,6 +74,13 @@ class App extends \DI\Bridge\Slim\App
         }
 
         return $provider;
+    }
+
+    private function processMiddleware()
+    {
+        foreach ($this->middleware as $middleware) {
+            $this->add($middleware);
+        }
     }
 
     private function processRoutes()
