@@ -19,3 +19,6 @@ services:
 volumes:
   logs:
     driver: "local"
+networks:
+  app-network:
+    driver: "bridge"
