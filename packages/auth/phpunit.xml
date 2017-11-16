@@ -12,18 +12,13 @@
     <testsuites>
         <testsuite name="brash Test Suite">
             <directory>tests</directory>
-            <directory>packages/*/tests</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist>
-            <directory suffix=".php">app/</directory>
-
             <exclude>
-                <directory>config/*</directory>
                 <directory>src/*</directory>
                 <directory suffix="ServiceProvider.php">src</directory>
-                <directory suffix="ServiceProvider.php">app</directory>
             </exclude>
         </whitelist>
     </filter>
