@@ -22,7 +22,7 @@ class Role extends AbstractEntity
     protected $permissions;
 
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection|Permission[]
      */
     public function getPermissions():? ArrayCollection
     {
@@ -39,5 +39,15 @@ class Role extends AbstractEntity
         $this->permissions = $permissions;
 
         return $this;
+    }
+
+    public function hasPermission(string $value):  bool
+    {
+        foreach ($this->getPermissions() as $permission) {
+            if ($permission->getPermission() == $value) {
+                return true;
+            }
+        }
+        return false;
     }
 }
